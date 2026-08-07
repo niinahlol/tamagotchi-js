@@ -11,43 +11,87 @@
     <link rel="stylesheet" href="style.css" />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Tamagotchi</title>
+    <title>Bichinho</title>
   </head>
   <body>
     <div class="tamagotchi">
-      <h1>Meu Tamagotchi</h1>
+      <h1>Meu Bichinho</h1>
+
       <div class="escolher-nome" id="escolherNome">
         <input type="text" id="inputNome" placeholder="Nome do seu pet" />
+        <p>Escolha seu pet:</p>
+
+        <div class="selecao-pets">
+          <button
+            type="button"
+            id="opcaoGato"
+            class="opcao-pet"
+            onclick="selecionarPet('gato')"
+          >
+            <img src="img/gato-feliz.png" alt="Gato" /> <span>Gato</span>
+          </button>
+
+          <button
+            type="button"
+            id="opcaoCachorro"
+            class="opcao-pet"
+            onclick="selecionarPet('cachorro')"
+          >
+            <img src="img/cachorro-feliz.png" alt="Cachorro" />
+            <span>Cachorro</span>
+          </button>
+
+          <button
+            type="button"
+            id="opcaoDinossauro"
+            class="opcao-pet"
+            onclick="selecionarPet('dinossauro')"
+          >
+            <img src="img/dinossauro-feliz.png" alt="Dinossauro" />
+            <span>Dinossauro</span>
+          </button>
+        </div>
         <button onclick="escolherNome()">Começar</button>
+
         <p id="erroNome"></p>
       </div>
-      <h2 id="nomePet">Tamagotchi</h2>
-      <div class="pet">
-        <img src="img/pet-feliz.png" id="petImagem" alt="Tamagotchi" />
+      <div class="tela-jogo" id="telaJogo">
+        <h2 id="nomePet">Bichinho</h2>
+        <div class="pet">
+          <img src="img/pet-feliz.png" id="petImagem" alt="Tamagotchi" />
+        </div>
+
+        <p id="mensagem">Olá, Cuide de mim!</p>
+        <p>Vida: <span id="vida">100</span></p>
+        <div class="barra">
+          <div id="barravida" class="barra-valor"></div>
+        </div>
+
+        <p>Fome: <span id="fome">50</span></p>
+        <div class="barra">
+          <div id="barrafome" class="barra-valor"></div>
+        </div>
+        <p>Felicidade: <span id="felicidade">50</span></p>
+        <div class="barra">
+          <div id="barrafelicidade" class="barra-valor"></div>
+        </div>
+        <p>Energia: <span id="energia">50</span></p>
+        <div class="barra">
+          <div id="barraenergia" class="barra-valor"></div>
+        </div>
+
+        <button id="btnAlimentar" onclick="alimentar()" disabled>
+          <i class="fa-solid fa-apple-whole"></i> Alimentar
+        </button>
+
+        <button id="btnBrincar" onclick="brincar()" disabled>
+          <i class="fa-solid fa-gamepad"></i> Brincar
+        </button>
+
+        <button id="btnDormir" onclick="dormir()" disabled>
+          <i class="fa-regular fa-moon"></i> Dormir
+        </button>
       </div>
-
-      <p id="mensagem">Olá, Cuide de mim!</p>
-
-      <p>Fome: <span id="fome">50</span></p>
-      <div class="barra"><div id="barrafome" class="barra-valor"></div></div>
-      <p>Felicidade: <span id="felicidade">50</span></p>
-      <div class="barra">
-        <div id="barrafelicidade" class="barra-valor"></div>
-      </div>
-      <p>Energia: <span id="energia">50</span></p>
-      <div class="barra"><div id="barraenergia" class="barra-valor"></div></div>
-
-      <button id="btnAlimentar" onclick="alimentar()" disabled>
-        <i class="fa-solid fa-apple-whole"></i> Alimentar
-      </button>
-
-      <button id="btnBrincar" onclick="brincar()" disabled>
-        <i class="fa-solid fa-gamepad"></i> Brincar
-      </button>
-
-      <button id="btnDormir" onclick="dormir()" disabled>
-        <i class="fa-regular fa-moon"></i> Dormir
-      </button>
     </div>
 
     <script src="script.js"></script>

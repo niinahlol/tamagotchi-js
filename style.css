@@ -91,11 +91,60 @@ button:hover {
   border-radius: 10px;
 }
 
+.selecao-pets {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  flex-wrap: wrap;
+
+  margin: 15px 0;
+}
+
+.opcao-pet {
+  width: 90px;
+  padding: 8px;
+  background-color: #f8eef8;
+  border: 3px solid transparent;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+}
+
+.opcao-pet img {
+  width: 65px;
+  height: 65px;
+  object-fit: contain;
+}
+
+.opcao-pet span {
+  font-size: 13px;
+}
+
+.opcao-pet:hover {
+  background-color: #f0d9ef;
+}
+
+.opcao-pet.selecionado {
+  border-color: #bd6fba;
+  background-color: #f0d9ef;
+}
+
 #erroNome {
   color: #c62828;
   font-size: 14px;
   min-height: 18px;
   margin: 8px 0 0;
+}
+
+#inputNome {
+  border-radius: 5px;
+  border: 2px solid #d88bd4;
+}
+
+.tela-jogo {
+  display: none;
 }
 
 @media (max-width: 480px) {
