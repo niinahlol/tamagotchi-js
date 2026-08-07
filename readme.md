@@ -1,6 +1,6 @@
-# 👾 Tamagotchi JS
+# 👾 Meu bichinho JS
 
-Um Tamagotchi simples desenvolvido durante meus estudos de JavaScript no curso de Programação Front-end do SENAI.
+Um bichinhi simples e inspirado no Tamagotchi desenvolvido durante meus estudos de JavaScript no curso de Programação Front-end do SENAI.
 
 O projeto começou como um exercício para praticar `button onclick` e `function` e foi evoluindo conforme novos conceitos foram aplicados.
 
@@ -44,6 +44,10 @@ Os sprites do Tamagotchi também foram criados por mim em pixel art.
 
 ## 🚧 Versão
 
-**V1 — funcional**
+**V2.2 — funcional**
 
 Novas funcionalidades serão adicionadas conforme eu avançar nos estudos de JavaScript.
+
+## 🟥 ATENÇÃO 
+
+** TAMAGOTCHI É UM PRODUTO ©BANDAI　® & © 2024 BANDAI, TODOS OS DIREITOS SÃO RESERVADOS A ©BANDAI　® & © 2024 BANDAI**
