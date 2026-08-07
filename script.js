@@ -5,6 +5,8 @@ let energia = 50;
 let vida = 100;
 let petSelecionado = "";
 
+let nomePet = "";
+
 // Jogo não inicia, evita perder os atributos antes de escolher um nome
 let jogoIniciado = false;
 
@@ -37,7 +39,9 @@ function escolherNome() {
     document.getElementById("erroNome").textContent = "Escolha um bichinho!";
   } else {
     document.getElementById("erroNome").textContent = "";
-    document.getElementById("nomePet").textContent = nome;
+
+    nomePet = nome;
+    document.getElementById("nomePet").textContent = nomePet;
 
     document.getElementById("escolherNome").style.display = "none";
     document.getElementById("telaJogo").style.display = "block";
@@ -49,6 +53,7 @@ function escolherNome() {
     document.getElementById("btnAlimentar").disabled = false;
     document.getElementById("btnBrincar").disabled = false;
     document.getElementById("btnDormir").disabled = false;
+    atualizarTela();
   }
 }
 
@@ -126,6 +131,10 @@ function atualizarTela() {
   atualizarCorBarra(felicidade, document.getElementById("barrafelicidade"));
   atualizarCorBarra(energia, document.getElementById("barraenergia"));
   atualizarCorBarra(vida, document.getElementById("barravida"));
+
+  if (jogoIniciado) {
+    salvarJogo();
+  }
 }
 
 // Função dinamica para sprites
@@ -135,6 +144,89 @@ function trocarSprite(estado) {
   }
   document.getElementById("petImagem").src =
     "img/" + petSelecionado + "-" + estado + ".png";
+}
+
+function salvarJogo() {
+  if (!jogoIniciado) {
+    return;
+  }
+  let dadosDoJogo = {
+    nome: nomePet,
+    pet: petSelecionado,
+    fome: fome,
+    felicidade: felicidade,
+    energia: energia,
+    vida: vida,
+  };
+
+  localStorage.setItem("meuBichinhoSave", JSON.stringify(dadosDoJogo));
+}
+
+function carregarJogo() {
+  let save = localStorage.getItem("meuBichinhoSave");
+  if (save === null) {
+    return;
+  }
+  let dadosDoJogo = JSON.parse(save);
+
+  nomePet = dadosDoJogo.nome;
+  petSelecionado = dadosDoJogo.pet;
+  fome = dadosDoJogo.fome;
+  felicidade = dadosDoJogo.felicidade;
+  energia = dadosDoJogo.energia;
+  vida = dadosDoJogo.vida;
+
+  document.getElementById("nomePet").textContent = nomePet;
+
+  document.getElementById("escolherNome").style.display = "none";
+  document.getElementById("telaJogo").style.display = "block";
+
+  if (vida > 0) {
+    jogoIniciado = true;
+
+    document.getElementById("btnAlimentar").disabled = false;
+    document.getElementById("btnBrincar").disabled = false;
+    document.getElementById("btnDormir").disabled = false;
+  } else {
+    jogoIniciado = false;
+
+    document.getElementById("btnAlimentar").disabled = true;
+    document.getElementById("btnBrincar").disabled = true;
+    document.getElementById("btnDormir").disabled = true;
+  }
+  atualizarTela();
+  verificarStatus();
+}
+
+function novoJogo() {
+  localStorage.removeItem("meuBichinhoSave");
+
+  fome = 50;
+  felicidade = 50;
+  energia = 50;
+  vida = 100;
+
+  nomePet = "";
+  petSelecionado = "";
+  jogoIniciado = false;
+
+  document.getElementById("inputNome").value = "";
+  document.getElementById("erroNome").textContent = "";
+  document.getElementById("nomePet").textContent = "Bichinho";
+  document.getElementById("mensagem").textContent = "Olá, cuide de mim!";
+
+  document.getElementById("opcaoGato").classList.remove("selecionado");
+  document.getElementById("opcaoCachorro").classList.remove("selecionado");
+  document.getElementById("opcaoDinossauro").classList.remove("selecionado");
+
+  document.getElementById("btnAlimentar").disabled = true;
+  document.getElementById("btnBrincar").disabled = true;
+  document.getElementById("btnDormir").disabled = true;
+
+  document.getElementById("telaJogo").style.display = "none";
+  document.getElementById("escolherNome").style.display = "block";
+
+  atualizarTela();
 }
 
 // Verificação de atributos
@@ -250,5 +342,4 @@ setInterval(function () {
   aplicarDano();
 }, 5000);
 
-atualizarTela();
-verificarStatus();
+carregarJogo();

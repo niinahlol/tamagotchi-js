@@ -131,6 +131,20 @@ button:hover {
   background-color: #f0d9ef;
 }
 
+.acoes-jogo {
+  margin-top: 18px;
+}
+
+#btnNovoJogo {
+  background-color: transparent;
+  color: #8d438a;
+  border: 2px solid #d88bd4;
+}
+
+#btnNovoJogo:hover {
+  background-color: #f4dff4;
+}
+
 #erroNome {
   color: #c62828;
   font-size: 14px;
