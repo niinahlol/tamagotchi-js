@@ -26,6 +26,12 @@ button {
 
   cursor: pointer;
 }
+button:disabled,
+button:disabled:hover {
+  background-color: #cccccc;
+  color: #777777;
+  cursor: not-allowed;
+}
 
 button:hover {
   background-color: #bd6fba;
@@ -83,6 +89,13 @@ button:hover {
 
   background-color: #d88bd4;
   border-radius: 10px;
+}
+
+#erroNome {
+  color: #c62828;
+  font-size: 14px;
+  min-height: 18px;
+  margin: 8px 0 0;
 }
 
 @media (max-width: 480px) {

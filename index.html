@@ -19,6 +19,7 @@
       <div class="escolher-nome" id="escolherNome">
         <input type="text" id="inputNome" placeholder="Nome do seu pet" />
         <button onclick="escolherNome()">Começar</button>
+        <p id="erroNome"></p>
       </div>
       <h2 id="nomePet">Tamagotchi</h2>
       <div class="pet">
@@ -36,15 +37,15 @@
       <p>Energia: <span id="energia">50</span></p>
       <div class="barra"><div id="barraenergia" class="barra-valor"></div></div>
 
-      <button onclick="alimentar()">
+      <button id="btnAlimentar" onclick="alimentar()" disabled>
         <i class="fa-solid fa-apple-whole"></i> Alimentar
       </button>
 
-      <button onclick="brincar()">
+      <button id="btnBrincar" onclick="brincar()" disabled>
         <i class="fa-solid fa-gamepad"></i> Brincar
       </button>
 
-      <button onclick="dormir()">
+      <button id="btnDormir" onclick="dormir()" disabled>
         <i class="fa-regular fa-moon"></i> Dormir
       </button>
     </div>

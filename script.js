@@ -6,48 +6,68 @@ let energia = 50;
 // Jogo não inicia, evita perder os atributos antes de escolher um nome
 let jogoIniciado = false;
 
-// Funções NOME FOME FELICIDADE E TRISTEZA
+// Funções de interação
 function escolherNome() {
-  let nome = document.getElementById("inputNome").value;
+  let nome = document.getElementById("inputNome").value.trim();
 
   if (nome === "") {
-    alert("Nome Vazio!!");
+    document.getElementById("erroNome").textContent =
+      "Escolha um nome para seu pet!!";
   } else {
+    document.getElementById("erroNome").textContent = "";
     document.getElementById("nomePet").textContent = nome;
     document.getElementById("escolherNome").style.display = "none";
     jogoIniciado = true;
+    document.getElementById("btnAlimentar").disabled = false;
+    document.getElementById("btnBrincar").disabled = false;
+    document.getElementById("btnDormir").disabled = false;
   }
+}
+
+function mostrarMensagemTemporaria(texto) {
+  document.getElementById("mensagem").textContent = texto;
+  setTimeout(function () {
+    verificarStatus();
+  }, 1000);
 }
 
 function alimentar() {
+  if (!jogoIniciado) {
+    return;
+  }
   if (fome < 100) {
     fome = fome + 10;
+    atualizarTela();
+    verificarStatus();
   } else {
-    alert("Barriguinha Cheia!!");
+    mostrarMensagemTemporaria("Minha barriguinha já está cheia!");
   }
-
-  atualizarTela();
-  verificarStatus();
 }
 
 function brincar() {
+  if (!jogoIniciado) {
+    return;
+  }
   if (felicidade < 100) {
     felicidade = felicidade + 10;
+    atualizarTela();
+    verificarStatus();
   } else {
-    alert("Brincadeira tem hora!");
+    mostrarMensagemTemporaria("Eu não quero brincar agora!");
   }
-  atualizarTela();
-  verificarStatus();
 }
 
 function dormir() {
+  if (!jogoIniciado) {
+    return;
+  }
   if (energia < 100) {
     energia = energia + 10;
+    atualizarTela();
+    verificarStatus();
   } else {
-    alert("Sem soninho!");
+    mostrarMensagemTemporaria("Sem soninho!");
   }
-  atualizarTela();
-  verificarStatus();
 }
 
 function atualizarCorBarra(valor, barra) {
