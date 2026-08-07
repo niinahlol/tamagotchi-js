@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.0/css/all.min.css"
+      integrity="sha512-ApSLB1Pd3/bZN8fWB/RG9YhN/7bd9Hkf3AGaE2mPfebjrxagjuBtx2GcgdqIlJkUzwylBo61r9Xa9NmgBI0swA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tamagotchi</title>
+  </head>
+  <body>
+    <div class="tamagotchi">
+      <h1>Meu Tamagotchi</h1>
+      <div class="escolher-nome" id="escolherNome">
+        <input type="text" id="inputNome" placeholder="Nome do seu pet" />
+        <button onclick="escolherNome()">Começar</button>
+      </div>
+      <h2 id="nomePet">Tamagotchi</h2>
+      <div class="pet">
+        <img src="img/pet-feliz.png" id="petImagem" alt="Tamagotchi" />
+      </div>
+
+      <p id="mensagem">Olá, Cuide de mim!</p>
+
+      <p>Fome: <span id="fome">50</span></p>
+      <div class="barra"><div id="barrafome" class="barra-valor"></div></div>
+      <p>Felicidade <span id="felicidade">50</span></p>
+      <div class="barra">
+        <div id="barrafelicidade" class="barra-valor"></div>
+      </div>
+      <p>Energia: <span id="energia">50</span></p>
+      <div class="barra"><div id="barraenergia" class="barra-valor"></div></div>
+
+      <button onclick="alimentar()">
+        <i class="fa-solid fa-apple-whole"></i> Alimentar
+      </button>
+
+      <button onclick="brincar()">
+        <i class="fa-solid fa-gamepad"></i> Brincar
+      </button>
+
+      <button onclick="dormir()">
+        <i class="fa-regular fa-moon"></i> Dormir
+      </button>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
