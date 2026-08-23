@@ -343,3 +343,28 @@ setInterval(function () {
 }, 5000);
 
 carregarJogo();
+
+// Modal Como Jogar
+
+let modal = document.getElementById("modalComoJogar");
+let botaoComoJogar = document.getElementById("btnComoJogar");
+let botaoFechar = document.getElementById("fecharModal");
+let botaoEntendi = document.getElementById("entendiModal");
+
+botaoComoJogar.addEventListener("click", function () {
+  modal.style.display = "flex";
+});
+
+botaoFechar.addEventListener("click", function () {
+  modal.style.display = "none";
+});
+
+botaoEntendi.addEventListener("click", function () {
+  modal.style.display = "none";
+});
+
+modal.addEventListener("click", function (event) {
+  if (event.target === modal) {
+    modal.style.display = "none";
+  }
+});
